@@ -39,3 +39,6 @@
     - name: Set timezone to Africa/Lagos
       timezone:
         name: Africa/Lagos
+
+    - name: Run some shell script
+      command: echo "this is a test file..." > /tmp/temp_dir/temp_file
