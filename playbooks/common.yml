@@ -1,41 +1,41 @@
 ---
 - name: update web, nfs and db servers
-	hosts: webservers, nfs, db
-	remote_user: ec2-user
-	become: yes
-	become_user: root
-	tasks:
-		- name: ensure wireshark is at the latest version
-			yum:
-				name: wireshark
-				state: latest
+  hosts: webservers, nfs, db
+  remote_user: ec2-user
+  become: yes
+  become_user: root
+  tasks:
+    - name: ensure wireshark is at the latest version
+      yum:
+        name: wireshark
+        state: latest
 
 - name: update LB server
-	hosts: lb
-	remote_user: ubuntu
-	become: yes
-	become_user: root
-	tasks:
-		- name: Update apt repo
-			apt: 
-				update_cache: yes
+  hosts: lb
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  tasks:
+    - name: Update apt repo
+      apt: 
+        update_cache: yes
 
-		- name: ensure wireshark is at the latest version
-			apt:
-				name: wireshark
-				state: latest
+    - name: ensure wireshark is at the latest version
+      apt:
+        name: wireshark
+        state: latest
 
-		- name: Creates directory
-			file:
-				path: /tmp/temp_dir
-				state: directory
+    - name: Creates directory
+      file:
+        path: /tmp/temp_dir
+        state: directory
 
-		-	name: Touch a file, using symbolic modes to set the permissions (equivalent to 0644)
-			file:
-				path: /tmp/temp_dir/temp_file
-				state: touch
-				mode: u=rw,g=r,o=r
+    -	name: Touch a file, using symbolic modes to set the permissions (equivalent to 0644)
+      file:
+        path: /tmp/temp_dir/temp_file
+        state: touch
+        mode: u=rw,g=r,o=r
 
-		-	name: Set timezone to Africa/Lagos
-			timezone:
-				name: Africa/Lagos
+    -	name: Set timezone to Africa/Lagos
+      timezone:
+        name: Africa/Lagos
