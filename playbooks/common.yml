@@ -17,7 +17,7 @@
   become_user: root
   tasks:
     - name: Update apt repo
-      apt: 
+      apt:
         update_cache: yes
 
     - name: ensure wireshark is at the latest version
@@ -30,12 +30,12 @@
         path: /tmp/temp_dir
         state: directory
 
-    -	name: Touch a file, using symbolic modes to set the permissions (equivalent to 0644)
+    - name: Touch a file, using symbolic modes to set the permissions (equivalent to 0644)
       file:
         path: /tmp/temp_dir/temp_file
         state: touch
         mode: u=rw,g=r,o=r
 
-    -	name: Set timezone to Africa/Lagos
+    - name: Set timezone to Africa/Lagos
       timezone:
         name: Africa/Lagos
