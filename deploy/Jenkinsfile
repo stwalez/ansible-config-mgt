@@ -1,5 +1,9 @@
  pipeline {
   agent any
+  
+  environment {
+    ANSIBLE_DEBUG=1
+  }
 
   stages {
     stage('Build') {
@@ -34,7 +38,6 @@
         script {
           sh 'echo "Deploy Stage"'
           sh 'pwd'
-          sh 'export ANSIBLE_DEBUG=1'
           sh 'printenv'
           ansiblePlaybook credentialsId: 'private_key', installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'
         }
