@@ -35,6 +35,7 @@
           sh 'echo "Deploy Stage"'
           sh 'pwd'
           sh 'export ANSIBLE_DEBUG=1'
+          sh 'printenv'
           ansiblePlaybook credentialsId: 'private_key', installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'
         }
       }
