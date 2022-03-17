@@ -30,6 +30,7 @@
       steps {
         script {
           sh 'echo "Deploy Stage"'
+          ansiblePlaybook credentialsId: 'private_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'
         }
       }
     }
