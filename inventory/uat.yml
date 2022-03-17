@@ -3,4 +3,8 @@
 #172.31.46.146 ansible_ssh_user='ec2-user'
 
 [lb]
+<<<<<<< HEAD
 # 172.31.33.20 ansible_ssh_user='ubuntu'
+=======
+#172.31.33.20 ansible_ssh_user='ubuntu'
+>>>>>>> 2b8e3f7d79b8ce9dc400262bd1a6c16fdede8a16

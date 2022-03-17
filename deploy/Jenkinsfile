@@ -1,12 +1,12 @@
- pipeline {
+pipeline {
   agent any
-  
   stages {
     stage('Build') {
       steps {
         script {
           sh 'echo "Building Stage"'
         }
+
       }
     }
 
@@ -15,6 +15,7 @@
         script {
           sh 'echo "Testing Stage"'
         }
+
       }
     }
 
@@ -23,18 +24,20 @@
         script {
           sh 'echo "Package Stage"'
         }
+
       }
     }
 
     stage('Deploy') {
       options {
-        timeout(time: 5, unit: 'MINUTES')   // timeout on this stage
+        timeout(time: 5, unit: 'MINUTES')
       }
       steps {
         script {
           sh 'echo "Deploy Stage"'
-          ansiblePlaybook credentialsId: 'private_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'
+          ansiblePlaybook credentialsId: 'private_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/uat.yml', playbook: 'playbooks/site.yml'
         }
+
       }
     }
 
@@ -43,7 +46,9 @@
         script {
           sh 'echo "Clean Up Stage"'
         }
+
       }
     }
+
   }
 }
