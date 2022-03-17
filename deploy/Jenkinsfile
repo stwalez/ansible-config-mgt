@@ -33,6 +33,8 @@
       steps {
         script {
           sh 'echo "Deploy Stage"'
+          sh 'pwd'
+          sh 'ls'
           ansiblePlaybook credentialsId: 'private_key', installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'
         }
       }
