@@ -40,7 +40,7 @@
           sh 'echo "Deploy Stage"'
           sh 'pwd'
           sh 'printenv'
-          ansiblePlaybook credentialsId: 'private_key', installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'
+          ansiblePlaybook credentialsId: 'private_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'
         }
       }
     }
