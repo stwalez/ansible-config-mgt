@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
   agent any
 
   stages {
@@ -8,6 +8,14 @@ pipeline {
           sh 'echo "Building Stage"'
         }
       }
-   }
+    }
+
+    stage('Test') {
+      steps {
+        script {
+          sh 'echo "Testing Stage"'
+        }
+      }
+    }
   }
 }
