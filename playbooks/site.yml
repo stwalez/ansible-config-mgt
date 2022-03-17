@@ -6,11 +6,9 @@
 # - import_playbook: ../static-assignments/uat-webservers.yml
 
 
-<<<<<<< HEAD
-#- import_playbook: ../static-assignments/common.yml   
-=======
+
 # - import_playbook: ../static-assignments/common.yml   
->>>>>>> 2b8e3f7d79b8ce9dc400262bd1a6c16fdede8a16
+
 
 
 # - name: Include dynamic variables
