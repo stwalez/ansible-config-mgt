@@ -1,10 +1,5 @@
 pipeline {
   agent any
-
-  environment {
-    ANSIBLE_CONFIG="${WORKSPACE}/deploy/ansible.cfg"
-  }
-
   stages {
     stage('Build') {
       steps {
@@ -52,8 +47,13 @@ pipeline {
           sh 'echo "Clean Up Stage"'
         }
 
+        cleanWs(deleteDirs: true)
+        sh 'ls -la'
       }
     }
 
+  }
+  environment {
+    ANSIBLE_CONFIG = "${WORKSPACE}/deploy/ansible.cfg"
   }
 }
