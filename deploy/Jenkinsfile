@@ -1,5 +1,10 @@
 pipeline {
   agent any
+
+  environment {
+    ANSIBLE_CONFIG="${WORKSPACE}/deploy/ansible.cfg"
+  }
+
   stages {
     stage('Build') {
       steps {
