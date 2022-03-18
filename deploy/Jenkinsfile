@@ -48,7 +48,6 @@ pipeline {
         }
 
         cleanWs(deleteDirs: true)
-        sh 'ls -la'
       }
     }
 
