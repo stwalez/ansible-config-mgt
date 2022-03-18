@@ -7,7 +7,7 @@
 
 
 - import_playbook: ../static-assignments/common.yml   
-  tags: webservers
+
 
 
 - name: Include dynamic variables
