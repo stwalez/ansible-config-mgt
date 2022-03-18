@@ -40,6 +40,7 @@ pipeline {
       steps {
         script {
           sh 'echo "Deploy Stage"'
+          sh 'ls -la'
           ansiblePlaybook credentialsId: 'private_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/uat.yml', playbook: 'playbooks/site.yml'
         }
 
