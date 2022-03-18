@@ -1,8 +1,8 @@
 pipeline {
   agent any
 
-  environment {
-    ANSIBLE_CONFIG="${WORKSPACE}/deploy/ansible.cfg"
+  parameters {
+    string(name: 'inventory', defaultValue: 'dev',  description: 'This is the inventory file for the environment to deploy configuration')
   }
 
   stages {
@@ -40,7 +40,7 @@ pipeline {
       steps {
         script {
           sh 'echo "Deploy Stage"'
-          ansiblePlaybook credentialsId: 'private_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/uat.yml', playbook: 'playbooks/site.yml'
+          ansiblePlaybook credentialsId: 'private_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/${inventory}.yml', playbook: 'playbooks/site.yml'
         }
 
       }
@@ -52,8 +52,12 @@ pipeline {
           sh 'echo "Clean Up Stage"'
         }
 
+        cleanWs(deleteDirs: true)
       }
     }
 
+  }
+  environment {
+    ANSIBLE_CONFIG = "${WORKSPACE}/deploy/ansible.cfg"
   }
 }

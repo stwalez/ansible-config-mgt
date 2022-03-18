@@ -6,8 +6,7 @@
 # - import_playbook: ../static-assignments/uat-webservers.yml
 
 
-
-# - import_playbook: ../static-assignments/common.yml   
+ - import_playbook: ../static-assignments/common.yml   
 
 
 
@@ -18,8 +17,8 @@
 #   tags:
 #     - always
 
-- name: Webserver assignment
-  import_playbook: ../static-assignments/uat-webservers.yml
+# - name: Webserver assignment
+#  import_playbook: ../static-assignments/uat-webservers.yml
 
 # - name: Loadbalancers assignment
 #   import_playbook: ../static-assignments/loadbalancers.yml
