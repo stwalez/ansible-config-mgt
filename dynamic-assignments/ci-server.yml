@@ -1,0 +1,21 @@
+- name: update local server
+  become: yes
+  tasks:
+    - name: Install PHP
+      apt:
+        name:
+          - zip
+          - libapache2-mod-php
+          - phploc
+          - php-{{ item }}
+        state: present
+        update_cache: yes
+      loop:
+        - xml
+        - bcmath
+        - bz2
+        - intl
+        - gd
+        - mbstring
+        - mysql
+        - zip
