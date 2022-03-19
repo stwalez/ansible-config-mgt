@@ -51,7 +51,7 @@ pipeline {
       steps {
         script {
           sh 'echo "Deploy Stage"'
-          ansiblePlaybook credentialsId: 'private_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/${inventory}.yml', playbook: 'playbooks/site.yml', tags: '${tags}'
+          ansiblePlaybook credentialsId: 'private_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/${inventory}', playbook: 'playbooks/site.yml', tags: '${tags}'
         }
 
       }
