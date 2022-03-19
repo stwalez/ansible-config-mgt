@@ -6,6 +6,11 @@
   tasks:
     - include_tasks: ../dynamic-assignments/env-vars.yml
 
+- name: Install PHP on the Jenkins server
+  hosts: localhost
+  tasks:
+    - include_tasks: ../dynamic-assignments/ci-server.yml
+
 - name: Webserver assignment
   import_playbook: ../static-assignments/uat-webservers.yml
 
