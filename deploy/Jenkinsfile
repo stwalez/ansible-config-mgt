@@ -11,10 +11,9 @@ pipeline {
       steps {
         script {
           sh 'echo "Prep the workspace"'
-          sh 'rm -rf ~/.ansible.cfg/cp'
-          cleanWs()
+          sh 'ls -lh ~/.ansible'
+          sh 'rm -rf ~/.ansible/cp'
         }
-
       }
     }
 
