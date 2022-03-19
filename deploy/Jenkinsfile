@@ -7,6 +7,18 @@ pipeline {
   }
 
   stages {
+    stage('Prepare Workspace') {
+      steps {
+        script {
+          sh 'echo "Prep the workspace"'
+          sh 'rm -rf ~/.ansible.cfg/cp'
+          cleanWs()
+        }
+
+      }
+    }
+
+
     stage('Build') {
       steps {
         script {
