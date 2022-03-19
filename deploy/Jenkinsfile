@@ -36,7 +36,7 @@ pipeline {
 
     stage('Deploy') {
       options {
-        timeout(time: 2, unit: 'MINUTES')
+        timeout(time: 5, unit: 'MINUTES')
       }
       steps {
         script {
