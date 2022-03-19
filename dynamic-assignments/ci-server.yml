@@ -19,9 +19,6 @@
     - mysql
     - zip
 
-- name: Install Composer
-  shell: 'sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer'
-
 - name: Check if composer exists
   stat:
     path: '/tmp/composer-setup.php'
