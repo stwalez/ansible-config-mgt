@@ -13,8 +13,8 @@
     - include_tasks: ../dynamic-assignments/ci-server.yml
   tags: local
 
-- name: Webserver assignment
-  import_playbook: ../static-assignments/uat-webservers.yml
+  # - name: Webserver assignment
+  #  import_playbook: ../static-assignments/uat-webservers.yml
 
 - name: Loadbalancers assignment
   import_playbook: ../static-assignments/loadbalancers.yml
