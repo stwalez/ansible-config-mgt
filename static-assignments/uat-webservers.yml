@@ -1,4 +1,5 @@
 ---
 - hosts: uat-webservers
+  ignore_unreachable: yes
   roles:
      - webserver
