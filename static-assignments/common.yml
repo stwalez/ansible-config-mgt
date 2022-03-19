@@ -5,6 +5,7 @@
   remote_user: ec2-user
   become: yes
   become_user: root
+  ignore_unreachable: yes
   tasks:
     - name: ensure wireshark is at the latest version
       yum:
@@ -16,6 +17,7 @@
   remote_user: ubuntu
   become: yes
   become_user: root
+  ignore_unreachable: yes
   tasks:
     - name: Update apt repo
       apt:
