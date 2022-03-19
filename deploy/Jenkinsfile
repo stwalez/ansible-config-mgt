@@ -51,6 +51,7 @@ pipeline {
       steps {
         script {
           sh 'echo "Clean Up Stage"'
+          sh 'rm -rf ~/.ansible.cfg/cp'
         }
 
         cleanWs(deleteDirs: true)
