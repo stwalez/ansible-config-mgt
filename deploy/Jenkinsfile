@@ -13,6 +13,7 @@ pipeline {
           sh 'echo "Prep the workspace"'
           sh 'rm -rf ~/.ansible.cfg/cp'
           cleanWs()
+          sh 'ls -lah'
         }
 
       }
