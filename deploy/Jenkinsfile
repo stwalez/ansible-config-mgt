@@ -8,11 +8,6 @@ pipeline {
           sh 'ls -lh'
           sh 'rm -rf ~/.ansible/cp'
         }
-
-        cleanWs()
-        script {
-          sh 'ls -lh'
-         }
       }
     }
 
