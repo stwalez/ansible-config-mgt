@@ -5,11 +5,14 @@ pipeline {
       steps {
         script {
           sh 'echo "Prep the workspace"'
-          sh 'ls -lh ~/.ansible'
+          sh 'ls -lh'
           sh 'rm -rf ~/.ansible/cp'
         }
 
         cleanWs()
+        script {
+          sh 'ls -lh'
+         }
       }
     }
 
