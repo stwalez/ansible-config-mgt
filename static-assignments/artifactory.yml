@@ -2,5 +2,5 @@
 - hosts: artifact_repository
   ignore_unreachable: yes
   roles:
-     - artifact
+     - artifactory
   tags: ci_configuration
