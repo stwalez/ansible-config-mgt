@@ -1,7 +1,7 @@
 ---
 - hosts: sonarqube
   ignore_unreachable: yes
-  become_user: yes
+  become: yes
   roles:
      - sonarqube
   tags: ci_configuration
