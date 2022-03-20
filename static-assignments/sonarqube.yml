@@ -1,0 +1,6 @@
+---
+- hosts: sonarqube
+  ignore_unreachable: yes
+  roles:
+     - sonarqube
+  tags: ci_configuration

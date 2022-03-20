@@ -1,0 +1,6 @@
+---
+- hosts: artifact_repository
+  ignore_unreachable: yes
+  roles:
+     - artifact
+  tags: ci_configuration

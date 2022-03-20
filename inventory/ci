@@ -2,10 +2,10 @@
 localhost ansible_connection=local
 
 [nginx]
-<Nginx-Private-IP-Address>
+172.31.33.20 ansible_ssh_user='ubuntu'
 
 [sonarqube]
-<SonarQube-Private-IP-Address>
+172.31.14.204 ansible_ssh_user='ubuntu'
 
 [artifact_repository]
-<Artifact_repository-Private-IP-Address>
+172.31.6.142 ansible_ssh_user='ubuntu'
