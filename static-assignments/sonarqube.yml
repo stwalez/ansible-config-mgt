@@ -3,5 +3,8 @@
   ignore_unreachable: yes
   become: yes
   roles:
-     - sonarqube
+      - role: java
+        java_major_version: 11
+        
+      - role: sonarqube
   tags: ci_configuration
