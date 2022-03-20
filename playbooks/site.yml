@@ -19,7 +19,6 @@
 
 - name: Install Sonarqube
   import_playbook: ../static-assignments/sonarqube.yml
- 
 
 - name: Install Artifactory
   import_playbook: ../static-assignments/artifactory.yml
