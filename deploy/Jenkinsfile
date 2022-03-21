@@ -1,17 +1,11 @@
 pipeline {
   agent any
-
-  parameters {
-    string(name: 'inventory', defaultValue: 'dev',  description: 'This is the inventory file for the environment to deploy configuration')
-    string(name: 'tags', defaultValue: '',  description: 'Specify the tag to limit the ansible execution')
-  }
-
   stages {
     stage('Prepare Workspace') {
       steps {
         script {
           sh 'echo "Prep the workspace"'
-          sh 'ls -lh ~/.ansible'
+          sh 'ls -lh'
           sh 'rm -rf ~/.ansible/cp'
         }
       }
@@ -71,5 +65,9 @@ pipeline {
   }
   environment {
     ANSIBLE_CONFIG = "${WORKSPACE}/deploy/ansible.cfg"
+  }
+  parameters {
+    string(name: 'inventory', defaultValue: 'dev', description: 'This is the inventory file for the environment to deploy configuration')
+    string(name: 'tags', defaultValue: '', description: 'Specify the tag to limit the ansible execution')
   }
 }
