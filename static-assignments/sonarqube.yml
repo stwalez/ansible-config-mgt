@@ -1,12 +1,22 @@
 ---
+- import_playbook: postgresql_setup.yml
+  tags: postgres
+
 - hosts: sonarqube
   ignore_unreachable: yes
   become: yes
+  gather_facts: False
   roles:
+      - role: nickjj.swapfile
+        swapfile_size: 3072
+        tags: swapfile
+
       - role: java
         java_major_version: 11
         java_tarball_install: true
         transport: web
         transport_web: https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
+        tags: java
 
       - role: sonarqube
+        tags: sonar

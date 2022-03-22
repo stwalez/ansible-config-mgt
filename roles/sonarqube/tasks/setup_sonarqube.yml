@@ -45,6 +45,13 @@
     state: link
   when: "ansible_service_mgr != 'systemd'"
 
+- name: Update user in sonar.sh filee
+  lineinfile:
+    path: "{{ sonar_daemon_dir }}/sonar.sh"
+    regexp: '^#RUN_AS_USER='
+    state: present
+    line: RUN_AS_USER={{ sonar_user }}
+
 - name: "Copy SonarQube systemd unit file into place (for systemd systems)."
   template:
     src: sonar.service.j2
