@@ -3,7 +3,6 @@ pipeline {
   
   environment {
     ANSIBLE_CONFIG = "${WORKSPACE}/deploy/ansible.cfg"
-    CURRENT_WS = "${WORKSPACE}"
   }
 
   parameters {
@@ -56,7 +55,7 @@ pipeline {
       steps {
         script {
           sh 'echo "Deploy Stage"'
-          ansiblePlaybook credentialsId: 'private_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/${inventory}', playbook: 'playbooks/site.yml', tags: '${tags}', extraVars : [ var_jenkins_job: '${var_jenkins_job}' ]
+          ansiblePlaybook credentialsId: 'private_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/${inventory}', playbook: 'playbooks/site.yml', tags: '${tags}'
         }
       }
     }
