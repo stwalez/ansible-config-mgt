@@ -19,6 +19,8 @@ mysql_enabled_on_startup: true
 # Whether my.cnf should be updated on every run.
 overwrite_global_mycnf: true
 
+
+
 # The following variables have a default value depending on operating system.
 # mysql_config_file: /etc/my.cnf
 # mysql_config_include_dir: /etc/my.cnf.d
@@ -30,9 +32,10 @@ mysql_enablerepo: ""
 # Define a custom list of packages to install; if none provided, the default
 # package list from vars/[OS-family].yml will be used.
 # mysql_packages:
+#  - mysql-server
 #   - mysql
-#   - mysql-server
 #   - MySQL-python
+
 
 mysql_python_package_debian: python3-mysqldb
 
@@ -106,18 +109,27 @@ mysql_config_include_files: []
 #  - { src: path/relative/to/playbook/anotherfile.cnf, force: yes }
 
 # Databases.
-mysql_databases: []
+mysql_databases: 
    - name: tooling
 #     collation: utf8_general_ci
 #     encoding: utf8
 #     replicate: 1
+   - name: homestead
 
 # Users.
-mysql_users: []
+mysql_users: 
    - name: webaccess
-     host: %
+     host: "%"
      password: s3cur3p@ssw0rd
-     priv: tooling.*:USAGE
+     priv: "tooling.*:USAGE"
+
+   - name: homestead
+     host: "%"
+     password: sePret^i
+     priv: "homestead.*:ALL"
+     
+
+
 
 # Replication settings (replication is only enabled if master/user have values).
 mysql_server_id: "1"
