@@ -6,7 +6,6 @@ pipeline {
         script {
           sh 'echo "Prep the workspace"'
           sh 'ls -lh'
-          sh 'rm -rf ~/.ansible/cp'
         }
       }
     }
@@ -55,7 +54,7 @@ pipeline {
       steps {
         script {
           sh 'echo "Clean Up Stage"'
-          sh 'rm -rf ~/.ansible.cfg/cp'
+          sh 'rm -rf ~/.ansible/cp'
         }
 
         cleanWs(deleteDirs: true)
