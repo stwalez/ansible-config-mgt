@@ -53,7 +53,7 @@
         url: http://{{ artifactory_server_ip }}:8082/artifactory/PBL/php-todo
         dest: /home/ec2-user/
         url_username: admin
-        url_password: AP2aKq8RMiHee2WNSc8E1TCHF4V 
+        url_password: 5mnkwN8VbZjs28 
 
 
     - name: unzip the artifacts
@@ -64,7 +64,7 @@
 
     - name: deploy the code
       ansible.builtin.copy:
-        src: /home/ec2-user/var/lib/jenkins/workspace/php-todo_main/
+        src: /home/ec2-user/var/lib/jenkins/workspace/php-todo_new-features/
         dest: /var/www/html/
         force: yes
         remote_src: yes
