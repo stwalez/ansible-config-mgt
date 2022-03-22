@@ -64,7 +64,7 @@
 
     - name: deploy the code
       ansible.builtin.copy:
-        src: '{{ var_jenkins_workspace }}/php-todo_new-features/'
+        src: '{{ var_jenkins_job }}/php-todo_new-features/'
         dest: /var/www/html/
         force: yes
         remote_src: yes

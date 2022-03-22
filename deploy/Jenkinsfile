@@ -56,7 +56,7 @@ pipeline {
       steps {
         script {
           sh 'echo "Deploy Stage"'
-          ansiblePlaybook credentialsId: 'private_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/${inventory}', playbook: 'playbooks/site.yml', tags: '${tags}', extraVars : [ var_jenkins_workspace: env.CURRENT_WS ]
+          ansiblePlaybook credentialsId: 'private_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/${inventory}', playbook: 'playbooks/site.yml', tags: '${tags}', extraVars : [ var_jenkins_job: '${var_jenkins_job}' ]
         }
       }
     }
