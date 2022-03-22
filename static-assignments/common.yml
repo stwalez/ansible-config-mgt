@@ -18,6 +18,8 @@
   become: yes
   become_user: root
   ignore_unreachable: yes
+  gather_subset:
+    - min
   tasks:
     - name: Update apt repo
       apt:
