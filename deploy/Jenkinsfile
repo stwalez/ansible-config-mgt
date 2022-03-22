@@ -1,5 +1,17 @@
 pipeline {
   agent any
+  
+  environment {
+    ANSIBLE_CONFIG = "${WORKSPACE}/deploy/ansible.cfg"
+    CURRENT_WS = "${WORKSPACE}"
+  }
+
+  parameters {
+    string(name: 'inventory', defaultValue: 'dev', description: 'This is the inventory file for the environment to deploy configuration')
+    string(name: 'tags', defaultValue: '', description: 'Specify the tag to limit the ansible execution')
+  }
+
+
   stages {
     stage('Prepare Workspace') {
       steps {
@@ -44,9 +56,8 @@ pipeline {
       steps {
         script {
           sh 'echo "Deploy Stage"'
-          ansiblePlaybook credentialsId: 'private_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/${inventory}', playbook: 'playbooks/site.yml', tags: '${tags}'
+          ansiblePlaybook credentialsId: 'private_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/${inventory}', playbook: 'playbooks/site.yml', tags: '${tags}', extraVars : [ var_jenkins_workspace: env.CURRENT_WS ]
         }
-
       }
     }
 
@@ -62,11 +73,5 @@ pipeline {
     }
 
   }
-  environment {
-    ANSIBLE_CONFIG = "${WORKSPACE}/deploy/ansible.cfg"
-  }
-  parameters {
-    string(name: 'inventory', defaultValue: 'dev', description: 'This is the inventory file for the environment to deploy configuration')
-    string(name: 'tags', defaultValue: '', description: 'Specify the tag to limit the ansible execution')
-  }
+  
 }
