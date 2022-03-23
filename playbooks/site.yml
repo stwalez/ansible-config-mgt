@@ -34,7 +34,7 @@
 - name: Deploy to the todo server
   import_playbook: ../static-assignments/todo_deployment.yml
   vars:
-    artifactory_server_ip: "3.80.10.139"
+    artifactory_server_ip: "172.31.6.142"
 
 - name: Deploy Java to Jenkins-agents
   import_playbook: ../static-assignments/jenkins_agents.yml
