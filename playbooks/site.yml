@@ -35,3 +35,6 @@
   import_playbook: ../static-assignments/todo_deployment.yml
   vars:
     artifactory_server_ip: "3.80.10.139"
+
+- name: Deploy Java to Jenkins-agents
+  import_playbook: ../static-assignments/jenkins_agents.yml

@@ -1,0 +1,7 @@
+---
+- name: Install Java on Jenkins Agents
+  hosts: jenkins-agents
+  become: yes
+  roles:
+    - java
+  tags: agents
