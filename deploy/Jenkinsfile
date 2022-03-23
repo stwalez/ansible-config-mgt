@@ -1,5 +1,5 @@
 pipeline {
-  agent ansible-configured-agents
+  agent { label ansible-configured-agents }
   
   environment {
     ANSIBLE_CONFIG = "${WORKSPACE}/deploy/ansible.cfg"
