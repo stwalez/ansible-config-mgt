@@ -1,7 +1,9 @@
 ---
-- name: Install Java on Jenkins Agents
-  hosts: jenkins-agents
+- name: Install Dependencies on Jenkins Agents
+  hosts: jenkins_agents
   become: yes
+  ignore_unreachable: yes
   roles:
     - java
+    - geerlingguy.ansible
   tags: agents

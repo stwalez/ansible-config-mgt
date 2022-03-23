@@ -1,5 +1,15 @@
 pipeline {
-  agent any
+  agent ansible-configured-agents
+  
+  environment {
+    ANSIBLE_CONFIG = "${WORKSPACE}/deploy/ansible.cfg"
+  }
+
+  parameters {
+    string(name: 'inventory', defaultValue: 'dev', description: 'This is the inventory file for the environment to deploy configuration')
+    string(name: 'tags', defaultValue: '', description: 'Specify the tag to limit the ansible execution')
+  }
+
   stages {
     stage('Prepare Workspace') {
       steps {
@@ -62,11 +72,5 @@ pipeline {
     }
 
   }
-  environment {
-    ANSIBLE_CONFIG = "${WORKSPACE}/deploy/ansible.cfg"
-  }
-  parameters {
-    string(name: 'inventory', defaultValue: 'dev', description: 'This is the inventory file for the environment to deploy configuration')
-    string(name: 'tags', defaultValue: '', description: 'Specify the tag to limit the ansible execution')
-  }
+
 }
