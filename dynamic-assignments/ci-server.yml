@@ -18,6 +18,7 @@
     - mbstring
     - mysql
     - zip
+    - xdebug
 
 - name: Check if composer exists
   stat:
